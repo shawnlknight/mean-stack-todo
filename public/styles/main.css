@@ -16,7 +16,8 @@ a {
   width: 80%;
   min-width: 500px;
   margin: 80px auto 0;
-  border-top: 40px solid #5a6772;
+  border-top: 40px solid #ED5A5A;
+  border-radius: 3px;
   text-align: left; }
   .list .item {
     border-bottom: 2px solid #edeff0;
@@ -68,4 +69,22 @@ input[type="checkbox"] + span {
 }
 input[type="checkbox"]:checked + span {
     background:url(checkbox-filled.svg) left top no-repeat;
+}
+
+nav ul {
+  text-align: left;
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li span {
+  display: block;
+  margin: 0;
+  padding: 10px 15px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #ED5A5A;
 }
