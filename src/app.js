@@ -12,7 +12,8 @@ var app = express();
 require('./database');
 require('./seed');
 
-app.use('/', express.static('public'));
+// app.use('/', express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(parser.json());
 
 app.use('/api', router);
