@@ -19,5 +19,10 @@
     "mongoose": "4.4.17",
     "express": "4.13.4",
     "webpack": "1.13.0"
-  }
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
 }

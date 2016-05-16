@@ -12,8 +12,8 @@ var app = express();
 require('./database');
 require('./seed');
 
-// app.use('/', express.static('public'));
-app.use(express.static(__dirname + '/public'));
+app.use('/', express.static('public'));
+app.set('port', (process.env.PORT || 5000));
 app.use(parser.json());
 
 app.use('/api', router);
@@ -22,6 +22,6 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
-app.listen(3000, function() {
-    console.log('The server is running on port 3000');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
