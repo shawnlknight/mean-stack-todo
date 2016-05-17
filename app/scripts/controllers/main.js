@@ -6,10 +6,10 @@ angular.module('todoListApp')
 .controller('mainCtrl', function($scope, $log, $interval, dataService){
   $scope.seconds = 0;
 
-  $scope.counter = function() {
-    $scope.seconds++;
-    $log.log($scope.seconds + ' have passed!');
-  };
+  // $scope.counter = function() {
+  //   $scope.seconds++;
+  //   $log.log($scope.seconds + ' have passed!');
+  // };
 
   $interval($scope.counter, 1000, 10);
 
@@ -19,7 +19,7 @@ angular.module('todoListApp')
   });
 
   $scope.addTodo = function() {
-    $scope.todos.unshift(
+    $scope.todos.push(
       {
         name: "New Task",
         completed: false
