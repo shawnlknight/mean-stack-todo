@@ -33,7 +33,7 @@ webpackJsonp([0],[
 	  //   $log.log($scope.seconds + ' have passed!');
 	  // };
 
-	  $interval($scope.counter, 1000, 10);
+	  // $interval($scope.counter, 1000, 10);
 
 	  dataService.getTodos(function(response){
 	    var todos = response.data.todos;
