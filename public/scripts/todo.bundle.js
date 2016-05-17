@@ -26,7 +26,7 @@ webpackJsonp([0],[
 
 	angular.module('todoListApp')
 	.controller('mainCtrl', function($scope, $log, $interval, dataService){
-	  $scope.seconds = 0;
+	  // $scope.seconds = 0;
 
 	  // $scope.counter = function() {
 	  //   $scope.seconds++;
@@ -41,7 +41,7 @@ webpackJsonp([0],[
 	  });
 
 	  $scope.addTodo = function() {
-	    $scope.todos.push(
+	    $scope.todos.unshift(
 	      {
 	        name: "New Task",
 	        completed: false
