@@ -12,7 +12,7 @@ angular.module('todoListApp')
 
   $scope.saveTodos = function() {
     var filteredTodos = $scope.todos.filter(function(todo){
-      if(todo.edited) {
+      if (todo.edited) {
         return todo;
       };
     })

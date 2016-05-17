@@ -25,16 +25,7 @@ webpackJsonp([0],[
 	var angular = __webpack_require__(1);
 
 	angular.module('todoListApp')
-	.controller('mainCtrl', function($scope, $log, $interval, dataService){
-	  // $scope.seconds = 0;
-
-	  // $scope.counter = function() {
-	  //   $scope.seconds++;
-	  //   $log.log($scope.seconds + ' have passed!');
-	  // };
-
-	  // $interval($scope.counter, 1000, 10);
-
+	.controller('mainCtrl', function($scope, $log, dataService){
 	  dataService.getTodos(function(response){
 	    var todos = response.data.todos;
 	    $scope.todos =  todos;
@@ -70,7 +61,7 @@ webpackJsonp([0],[
 
 	  $scope.saveTodos = function() {
 	    var filteredTodos = $scope.todos.filter(function(todo){
-	      if(todo.edited) {
+	      if (todo.edited) {
 	        return todo;
 	      };
 	    })
