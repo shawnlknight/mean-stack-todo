@@ -3,7 +3,8 @@
 var Todo = require('./models/todo.js');
 
 var todos = [
-  'First Todo'
+  'First Todo',
+  'Second Todo'
 ];
 
 todos.forEach(function(todo, index) {
