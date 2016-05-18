@@ -10,9 +10,18 @@ angular.module('todoListApp')
   });
 
   $scope.addTodo = function() {
+    var todoLength = $scope.todos.length;
+    var todoName = "";
+
+    if (todoLength) {
+      todoName = "Another TODO";
+    } else {
+      todoName = "New TODO";
+    }
+
     $scope.todos.unshift(
       {
-        name: "New Task",
+        name: todoName,
         completed: false
       }
     );

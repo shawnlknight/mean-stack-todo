@@ -3,7 +3,7 @@
 var Todo = require('./models/todo.js');
 
 var todos = [
-  'Sample TODO'
+  'New TODO'
 ];
 
 todos.forEach(function(todo, index) {
