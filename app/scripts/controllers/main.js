@@ -9,22 +9,18 @@ angular.module('todoListApp')
     $scope.todos =  todos;
   });
 
+  $scope.todoName = '';
+
   $scope.addTodo = function() {
-    var todoLength = $scope.todos.length;
-    var todoName = "";
-
-    if (todoLength) {
-      todoName = "Another TODO";
-    } else {
-      todoName = "New TODO";
-    }
-
-    $scope.todos.unshift(
-      {
-        name: todoName,
-        completed: false
-      }
-    );
+    $scope.todos.unshift({name: $scope.todoName, completed: false});
+    $scope.todoName = '';
   };
 
+  $scope.remaining = function() {
+      var count = 0;
+      angular.forEach($scope.todos, function(todo) {
+        count += todo.completed ? 0 : 1;
+      });
+      return count;
+    };
 })

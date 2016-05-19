@@ -14,14 +14,35 @@ a:hover {
   color: #65a1cc;
 }
 
+.btn-success {
+  padding: 10px 20px;
+  font-size: 17px;
+  line-height: 1.471;
+  border-radius: 6px;
+  color: #fff;
+  background: #2ABF69;
+  border: none;
+  cursor: pointer;
+}
+.btn-success:hover {
+  background: rgba(42, 191, 105, 0.7);
+}
+
 .list {
   background: #fff;
-  width: 50%;
+  width: 65%;
   min-width: 500px;
   margin: 80px auto 0;
-  border-top: 40px solid #ED5A5A;
+  border-top: 20px solid #ED5A5A;
   border-radius: 3px;
   text-align: left;
+}
+.list .count {
+  background: #ED5A5A;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0 10px 20px 0;
+  text-align: right;
 }
 .list .item {
   border-bottom: 2px solid #edeff0;
@@ -31,13 +52,13 @@ a:hover {
   padding-left: 5px;
   cursor: pointer;
 }
-.list .item .editing-label {
+.todo-label {
   margin-left: 5px;
   font-family: "Varela Round";
   border-radius: 2px;
   border: 2px solid #a7b9c4;
   font-size: 16px;
-  padding: 15px 0 15px 10px;
+  padding: 10px 0 10px 10px;
   width: 60%;
 }
 .list .item .actions {
@@ -48,7 +69,7 @@ a:hover {
   color: #fff;
   text-decoration: none;
   background: #3f8abf;
-  padding: 5px;
+  padding: 10px 20px;
   border-radius: 5px;
 }
 .list .item .actions a:hover {
@@ -63,7 +84,6 @@ a:hover {
   background: #f28888;
 }
 .list .item .inputs {
-  width: 70%;
   display: inline-block;
 }
 .list .item.editing-item .actions {
@@ -81,7 +101,8 @@ a:hover {
   text-decoration: line-through;
 }
 .list .add {
-  padding: 25px 0 27px 25px;
+  padding: 25px 0 45px 25px;
+  border-bottom: 2px solid #edeff0;
 }
 
 input[type="checkbox"] {
@@ -113,9 +134,15 @@ nav ul li span {
   display: block;
   margin: 0;
   padding: 10px 15px;
-  border-radius: 3px;
-  color: #fff;
-  background-color: #ED5A5A;
+  border: 2px solid #ED5A5A;
+  color: #ED5A5A;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 900px) {
+  .list {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -126,6 +153,6 @@ nav ul li span {
 
   .list .item .actions {
     float: none;
-    margin: 15px 0 0 33px;
+    margin: 30px 0 10px 0;
   }
 }
