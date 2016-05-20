@@ -12,15 +12,21 @@ angular.module('todoListApp')
   $scope.todoName = '';
 
   $scope.addTodo = function() {
-    $scope.todos.unshift({name: $scope.todoName, completed: false});
-    $scope.todoName = '';
+    var todoName = $scope.todoName;
+
+    if (todoName) {
+      $scope.todos.unshift({name: todoName, completed: false});
+      $scope.todoName = '';
+    } else {
+      return;
+    }
   };
 
   $scope.remaining = function() {
-      var count = 0;
-      angular.forEach($scope.todos, function(todo) {
-        count += todo.completed ? 0 : 1;
-      });
-      return count;
-    };
+    var count = 0;
+    angular.forEach($scope.todos, function(todo) {
+      count += todo.completed ? 0 : 1;
+    });
+    return count;
+  };
 })

@@ -34,17 +34,23 @@ webpackJsonp([0],[
 	  $scope.todoName = '';
 
 	  $scope.addTodo = function() {
-	    $scope.todos.unshift({name: $scope.todoName, completed: false});
-	    $scope.todoName = '';
+	    var todoName = $scope.todoName;
+
+	    if (todoName) {
+	      $scope.todos.unshift({name: todoName, completed: false});
+	      $scope.todoName = '';
+	    } else {
+	      return;
+	    }
 	  };
 
 	  $scope.remaining = function() {
-	      var count = 0;
-	      angular.forEach($scope.todos, function(todo) {
-	        count += todo.completed ? 0 : 1;
-	      });
-	      return count;
-	    };
+	    var count = 0;
+	    angular.forEach($scope.todos, function(todo) {
+	      count += todo.completed ? 0 : 1;
+	    });
+	    return count;
+	  };
 	})
 
 
@@ -65,7 +71,7 @@ webpackJsonp([0],[
 	  };
 
 	  $scope.saveTodos = function() {
-	    var filteredTodos = $scope.todos.filter(function(todo){
+	    var filteredTodos = $scope.todos.filter(function(todo) {
 	      if (todo.edited) {
 	        return todo;
 	      };
