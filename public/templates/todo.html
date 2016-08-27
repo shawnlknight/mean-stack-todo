@@ -2,13 +2,13 @@
     <div class="inputs">
         <form ng-submit="editing = false">
             <input type="checkbox" ng-model="todo.completed" />
-            <span ng-click="todo.completed = !todo.completed; todo.edited = true"></span>
-            <label ng-hide="editing" ng-click="editing = true">{{todo.name}}</label>
+            <span ng-click="todo.completed = !todo.completed; todo.edited = true" aria-label="{{todo.name}} checkbox"></span>
+            <label ng-hide="editing" ng-click="editing = true" tabindex="0">{{todo.name}}</label>
             <input ng-show="editing" ng-blur="editing = false" ng-model="todo.name" ng-change="todo.edited = true" ng-submit="editing = false" class="todo-label" type="text" />
         </form>
     </div>
     <div class="actions">
-        <a href="" ng-click="saveTodos(); editing = false">Save</a>
-        <a href="" class="delete" ng-click="deleteTodo(todo, $index)">Delete</a>
+        <a href="#" ng-click="saveTodos(); editing = false" aria-label="Save {{todo.name}}">Save</a>
+        <a href="#" class="delete" ng-click="deleteTodo(todo, $index)" aria-label="Delete {{todo.name}}">Delete</a>
     </div>
 </div>

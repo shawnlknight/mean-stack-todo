@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-angular.module('todoListApp', []);
+angular.module('todoListApp', [require('angular-aria')]);
 
 require('./scripts/controllers/main.js');
 require('./scripts/controllers/todo.js');
