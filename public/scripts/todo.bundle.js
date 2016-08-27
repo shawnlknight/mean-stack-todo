@@ -25,33 +25,36 @@ webpackJsonp([0],[
 	var angular = __webpack_require__(1);
 
 	angular.module('todoListApp')
-	.controller('mainCtrl', function($scope, $log, dataService){
-	  dataService.getTodos(function(response){
-	    var todos = response.data.todos;
-	    $scope.todos =  todos;
-	  });
+	    .controller('mainCtrl', function($scope, $log, dataService) {
+	        dataService.getTodos(function(response) {
+	            var todos = response.data.todos;
+	            $scope.todos = todos;
+	        });
 
-	  $scope.todoName = '';
+	        $scope.todoName = '';
 
-	  $scope.addTodo = function() {
-	    var todoName = $scope.todoName;
+	        $scope.addTodo = function() {
+	            var todoName = $scope.todoName;
 
-	    if (todoName) {
-	      $scope.todos.unshift({name: todoName, completed: false});
-	      $scope.todoName = '';
-	    } else {
-	      return;
-	    }
-	  };
+	            if (todoName) {
+	                $scope.todos.unshift({
+	                    name: todoName,
+	                    completed: false
+	                });
+	                $scope.todoName = '';
+	            } else {
+	                return;
+	            }
+	        };
 
-	  $scope.remaining = function() {
-	    var count = 0;
-	    angular.forEach($scope.todos, function(todo) {
-	      count += todo.completed ? 0 : 1;
-	    });
-	    return count;
-	  };
-	})
+	        $scope.remaining = function() {
+	            var count = 0;
+	            angular.forEach($scope.todos, function(todo) {
+	                count += todo.completed ? 0 : 1;
+	            });
+	            return count;
+	        };
+	    })
 
 
 /***/ },
@@ -63,29 +66,29 @@ webpackJsonp([0],[
 	var angular = __webpack_require__(1);
 
 	angular.module('todoListApp')
-	.controller('todoCtrl', function($scope, dataService) {
-	  $scope.deleteTodo = function(todo, index) {
-	    dataService.deleteTodo(todo).then(function() {
-	      $scope.todos.splice(index, 1);
-	    });
-	  };
+	    .controller('todoCtrl', function($scope, dataService) {
+	        $scope.deleteTodo = function(todo, index) {
+	            dataService.deleteTodo(todo).then(function() {
+	                $scope.todos.splice(index, 1);
+	            });
+	        };
 
-	  $scope.saveTodos = function() {
-	    var filteredTodos = $scope.todos.filter(function(todo) {
-	      if (todo.edited) {
-	        return todo;
-	      };
-	    })
-	    dataService.saveTodos(filteredTodos)
-	    .finally($scope.resetTodoState());
-	  };
+	        $scope.saveTodos = function() {
+	            var filteredTodos = $scope.todos.filter(function(todo) {
+	                if (todo.edited) {
+	                    return todo;
+	                };
+	            });
+	            dataService.saveTodos(filteredTodos)
+	                .finally($scope.resetTodoState());
+	        };
 
-	  $scope.resetTodoState = function() {
-	    $scope.todos.forEach(function(todos) {
-	      todos.edited = false;
+	        $scope.resetTodoState = function() {
+	            $scope.todos.forEach(function(todos) {
+	                todos.edited = false;
+	            });
+	        };
 	    });
-	  };
-	});
 
 
 /***/ },
@@ -97,13 +100,13 @@ webpackJsonp([0],[
 	var angular = __webpack_require__(1);
 
 	angular.module('todoListApp')
-	.directive('todo', function(){
-	  return {
-	    templateUrl: 'templates/todo.html',
-	    replace: true,
-	    controller: 'todoCtrl'
-	  }
-	});
+	    .directive('todo', function() {
+	        return {
+	            templateUrl: 'templates/todo.html',
+	            replace: true,
+	            controller: 'todoCtrl'
+	        }
+	    });
 
 
 /***/ },
@@ -115,42 +118,41 @@ webpackJsonp([0],[
 	var angular = __webpack_require__(1);
 
 	angular.module('todoListApp')
-	.service('dataService', function($http, $q) {
-	  this.getTodos = function(cb) {
-	    $http.get('/api/todos').then(cb);
-	  };
+	    .service('dataService', function($http, $q) {
+	        this.getTodos = function(callback) {
+	            $http.get('/api/todos').then(callback);
+	        };
 
-	  this.deleteTodo = function(todo) {
-	    if (!todo._id) {
-	      return $q.resolve();
-	    }
-	    return $http.delete('/api/todos/' + todo._id).then(function() {
-	      console.log("Deleted the " + todo.name + " todo");
+	        this.deleteTodo = function(todo) {
+	            if (!todo._id) {
+	                return $q.resolve();
+	            }
+	            return $http.delete('/api/todos/' + todo._id).then(function() {
+	                console.log("Deleted the " + todo.name + " todo");
+	            });
+	        };
+
+	        this.saveTodos = function(todos) {
+	            var queue = [];
+
+	            todos.forEach(function(todo) {
+	                var request;
+
+	                if (!todo._id) {
+	                    request = $http.post('/api/todos', todo);
+	                } else {
+	                    request = $http.put('/api/todos' + todo._id, todo).then(function(results) {
+	                        todo = result.data.todo;
+	                        return todo;
+	                    });
+	                }
+	                queue.push(request);
+	            });
+	            return $q.all(queue).then(function(results) {
+	                console.log("I saved " + todos.length + " todos!");
+	            });
+	        };
 	    });
-	  };
-
-	  this.saveTodos = function(todos) {
-	    var queue = [];
-
-	    todos.forEach(function(todo) {
-	      var request;
-
-	      if (!todo._id) {
-	        request = $http.post('/api/todos', todo);
-	      } else {
-	        request = $http.put('/api/todos' + todo._id, todo).then(function(results) {
-	          todo = result.data.todo;
-	          return todo;
-	        });
-	      }
-	      queue.push(request);
-	    });
-	    return $q.all(queue).then(function(results) {
-	      console.log("I saved " + todos.length + " todos!");
-	    });
-	  };
-
-	});
 
 
 /***/ }

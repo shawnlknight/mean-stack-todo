@@ -1,28 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title></title>
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <meta name="viewport" content="width=device-width">
-  </head>
-  <body ng-app="todoListApp">
+</head>
+
+<body ng-app="todoListApp">
     <ng-include src="'templates/navbar.html'"></ng-include>
     <h1>TODO</h1>
 
     <div class="list" ng-controller="mainCtrl">
-      <div class="count">{{remaining()}} of {{todos.length}} remaining</div>
-      <div class="add">
-        <form ng-submit="addTodo()">
-          <input type="text" class="todo-label" ng-model="todoName"  size="30"
-                 placeholder="add new todo here">
-          <a href="" class="btn-success" type="button" name="button" ng-click="addTodo()">Add</a>
-        </form>
-      </div>
-      <todo></todo>
+        <div class="count">{{remaining()}} of {{todos.length}} remaining</div>
+        <div class="add">
+            <form ng-submit="addTodo()">
+                <input type="text" class="todo-label" ng-model="todoName" size="30" placeholder="add new todo">
+                <a href="" class="btn-success" type="button" name="button" ng-click="addTodo()">Add</a>
+            </form>
+        </div>
+        <todo></todo>
     </div>
 
     <script src="/scripts/vendor.bundle.js"></script>
     <script src="/scripts/todo.bundle.js"></script>
-  </body>
+</body>
+
 </html>

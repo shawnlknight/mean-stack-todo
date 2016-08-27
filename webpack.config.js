@@ -1,5 +1,5 @@
 var webpack = require('webpack'),
-       path = require('path');
+    path = require('path');
 
 module.exports = {
     context: __dirname + '/app',
@@ -12,6 +12,6 @@ module.exports = {
         filename: 'todo.bundle.js'
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+        new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendor", /* filename= */ "vendor.bundle.js")
     ]
 };
