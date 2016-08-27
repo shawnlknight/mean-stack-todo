@@ -2,8 +2,8 @@
     <div class="inputs">
         <form ng-submit="editing = false">
             <input type="checkbox" ng-model="todo.completed" />
-            <span ng-click="todo.completed = !todo.completed; todo.edited = true" aria-label="{{todo.name}} checkbox"></span>
-            <label ng-hide="editing" ng-click="editing = true" tabindex="0">{{todo.name}}</label>
+            <span ng-click="todo.completed = !todo.completed; todo.edited = true" ng-checked="todo.completed" aria-label="{{todo.name}}" role="checkbox"></span>
+            <label ng-hide="editing" ng-click="editing = true" aria-label="Hit enter to edit">{{todo.name}}</label>
             <input ng-show="editing" ng-blur="editing = false" ng-model="todo.name" ng-change="todo.edited = true" ng-submit="editing = false" class="todo-label" type="text" />
         </form>
     </div>
