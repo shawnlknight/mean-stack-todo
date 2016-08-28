@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 
+/* Directive to set focus for accessibility */
 angular.module('todoListApp')
     .directive('focusMe', function($timeout) {
         return {

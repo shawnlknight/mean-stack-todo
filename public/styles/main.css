@@ -6,13 +6,16 @@ body {
     font-size: 16px;
 }
 
+h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
 .btn {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.42857143;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -29,6 +32,10 @@ body {
     color: #fff;
 }
 
+.material-icons {
+    padding-top: 4px;
+}
+
 .btn-lg {
     padding: 9px 20px;
     font-size: 17px;
@@ -36,7 +43,7 @@ body {
 }
 
 .btn-success {
-    background: #2ABF69;
+    background: #2ca05d;
 }
 
 .btn-success:hover:enabled {
@@ -60,7 +67,8 @@ body {
 }
 
 .btn-disabled {
-    background: lightgray;
+    background: #c5c5c5;
+    color: #4a4a4a;
     cursor: default;
 }
 
@@ -76,15 +84,24 @@ body {
 
 .list .count {
     background: #ED5A5A;
-    color: #fff;
+    color: #1f1e1e;
     text-transform: uppercase;
     padding: 0 10px 20px 0;
     text-align: right;
 }
 
+.list .count span {
+    cursor: default;
+    float: left;
+}
+
+.list .count span .material-icons {
+    padding: 0 21px;
+}
+
 .list .item {
     border-bottom: 2px solid #edeff0;
-    padding: 17px 0 20px 17px;
+    padding: 20px 0 32px 17px;
 }
 
 .list .item label {
@@ -165,9 +182,11 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 nav ul li span {
+    font-family: 'Oswald', sans-serif;
     display: block;
     margin: 0;
     padding: 10px 15px;

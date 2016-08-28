@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
-    <title></title>
+    <title>TODO App</title>
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <meta name="viewport" content="width=device-width">
 </head>
@@ -13,11 +15,16 @@
     <h1>TODO</h1>
 
     <div class="list" ng-controller="mainCtrl">
-        <div class="count" aria-live="polite">{{remaining()}} of {{todos.length}} remaining todos</div>
+        <div class="count" role="status" aria-live="polite" aria-atomic="true">
+            <span><i class="material-icons" aria-label="Accessible App" title="Accessible App">accessibility</i></span>
+            {{remaining()}} of {{todos.length}} remaining todos
+        </div>
         <div class="add">
             <form name="todoForm" ng-submit="addTodo()">
-                <input type="text" class="todo-label" ng-model="todoName" focus-me="focusTodoInput" size="30" placeholder="add new todo" required>
-                <button ng-class="{'btn-disabled': todoForm.$invalid}" class="btn btn-lg btn-success" type="button" name="button" aria-label="Add a new todo" ng-click="addTodo(); focusTodoInput = true" ng-disabled="todoForm.$invalid">Add</button>
+                <input type="text" class="todo-label" ng-model="todoName" focus-me="focusTodoInput" size="30" placeholder="add new todo" aria-label="add new todo" required>
+                <button ng-class="{'btn-disabled': todoForm.$invalid}" class="btn btn-success" type="button" name="button" ng-click="addTodo(); focusTodoInput = true" ng-disabled="todoForm.$invalid" title="Add todo">
+                    <i class="material-icons" aria-label="Add todo">add</i>
+                </button>
             </form>
         </div>
         <todo></todo>
