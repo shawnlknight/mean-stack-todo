@@ -4,14 +4,14 @@
             <input type="checkbox" ng-model="todo.completed" />
             <span ng-click="todo.completed = !todo.completed" ng-checked="todo.completed" aria-label="{{todo.name}}" role="checkbox"></span>
             <label ng-hide="editing" ng-click="editing = true; focusInput = true" aria-label="Hit enter to edit {{todo.name}}">{{todo.name}}</label>
-            <input ng-show="editing" focus-me="focusInput" ng-blur="editing = false; focusSave = true" ng-model="todo.name" ng-change="todo.edited = true" ng-submit="editing = false" class="todo-label" type="text" />
+            <input ng-show="editing" focus-me="focusInput" ng-blur="editing = false; editComplete = true; focusSave = true" ng-model="todo.name" ng-change="todo.edited = true" ng-submit="editing = false; editComplete = true;" class="todo-label" type="text" />
         </form>
     </div>
     <div class="actions">
-        <button class="btn btn-small btn-primary btn-mobile" ng-click="saveTodos(); editing = false" focus-me="focusSave" title="Save button">
-            <i class="material-icons" aria-label="Save {{todo.name}} todo">save</i>
+        <button class="btn btn-small btn-primary btn-mobile" ng-show="editComplete" ng-click="saveTodos(); editing = false; editComplete = false; focusDelete = true" focus-me="focusSave" title="Save button">
+            <i class="material-icons" aria-label="Save {{todo.name}} todo" aria-live="polite">save</i>
         </button>
-        <button class="btn btn-small btn-danger btn-mobile" ng-click="deleteTodo(todo, $index)" title="Delete button">
+        <button class="btn btn-small btn-danger btn-mobile" focus-me="focusDelete" ng-click="deleteTodo(todo, $index)" title="Delete button">
             <i class="material-icons" aria-label="Delete {{todo.name}}">delete_forever</i>
         </button>
     </div>
