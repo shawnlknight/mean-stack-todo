@@ -9,3 +9,4 @@ I built this application to become more familiar with the MEAN stack and Angular
 ## TODO
 
 * Incorporate notification for when a TODO is successfully deleted
+* Add *delete all completed* button or link
