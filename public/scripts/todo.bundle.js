@@ -12,6 +12,7 @@ webpackJsonp([0],[
 	__webpack_require__(6);
 	__webpack_require__(7);
 	__webpack_require__(8);
+	__webpack_require__(9);
 
 
 /***/ },
@@ -530,6 +531,31 @@ webpackJsonp([0],[
 
 /***/ },
 /* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var angular = __webpack_require__(1);
+
+	angular.module('todoListApp')
+	    .directive('focusMe', function($timeout) {
+	        return {
+	            link: function(scope, element, attrs) {
+	                scope.$watch(attrs.focusMe, function(value) {
+	                    if (value === true) {
+	                        $timeout(function() {
+	                            element[0].focus();
+	                            scope[attrs.focusMe] = false;
+	                        }, 500);
+	                    }
+	                });
+	            }
+	        };
+	    });
+
+
+/***/ },
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

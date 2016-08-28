@@ -7,4 +7,5 @@ angular.module('todoListApp', [require('angular-aria')]);
 require('./scripts/controllers/main.js');
 require('./scripts/controllers/todo.js');
 require('./scripts/directives/todo.js');
+require('./scripts/directives/focus.js');
 require('./scripts/services/data.js');
