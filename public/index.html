@@ -13,11 +13,11 @@
     <h1>TODO</h1>
 
     <div class="list" ng-controller="mainCtrl">
-        <div class="count">{{remaining()}} of {{todos.length}} remaining</div>
+        <div class="count" aria-live="polite">{{remaining()}} of {{todos.length}} remaining todos</div>
         <div class="add">
-            <form ng-submit="addTodo()">
-                <input type="text" class="todo-label" ng-model="todoName" size="30" placeholder="add new todo">
-                <a href="#" class="btn-success" type="button" name="button" aria-label="Add a new todo" ng-click="addTodo()">Add</a>
+            <form name="todoForm" ng-submit="addTodo()">
+                <input type="text" class="todo-label" ng-model="todoName" focus-me="focusTodoInput" size="30" placeholder="add new todo" required>
+                <button ng-class="{'btn-disabled': todoForm.$invalid}" class="btn btn-lg btn-success" type="button" name="button" aria-label="Add a new todo" ng-click="addTodo(); focusTodoInput = true" ng-disabled="todoForm.$invalid">Add</button>
             </form>
         </div>
         <todo></todo>

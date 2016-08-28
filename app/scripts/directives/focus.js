@@ -11,7 +11,7 @@ angular.module('todoListApp')
                         $timeout(function() {
                             element[0].focus();
                             scope[attrs.focusMe] = false;
-                        }, 500);
+                        }, 100);
                     }
                 });
             }
