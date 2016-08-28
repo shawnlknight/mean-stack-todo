@@ -4,7 +4,7 @@ This is a simple TODO app built using the MEAN stack
 
 ## Motivation
 
-I built this application to become more familiar with the MEAN stack and Angular in particular. I also wanted to build an accessible app using [ngAria](https://docs.angularjs.org/guide/accessibility).
+I built this application to become more familiar with the MEAN stack to learn how to incorporate accessibility with [ngAria](https://docs.angularjs.org/guide/accessibility)
 
 ## TODO
 
