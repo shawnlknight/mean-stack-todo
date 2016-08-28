@@ -537,6 +537,7 @@ webpackJsonp([0],[
 
 	var angular = __webpack_require__(1);
 
+	/* Directive to set focus for accessibility */
 	angular.module('todoListApp')
 	    .directive('focusMe', function($timeout) {
 	        return {
