@@ -187,6 +187,7 @@ nav ul li a {
 
 nav ul li span {
     font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
     display: block;
     margin: 0;
     padding: 10px 15px;
