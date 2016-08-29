@@ -11,6 +11,7 @@ I built this application to become more familiar with the MEAN stack and to lear
 - Incorporate notification for when a TODO is successfully deleted
 - Add **Check All** button or link
 - Add **Delete All Completed** button or link
+- Add **All | Incomplete | Complete** links to toggle which TODOs the user sees
 
 # Things To Note
 
