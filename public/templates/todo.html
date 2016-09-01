@@ -2,7 +2,7 @@
     <div class="inputs">
         <form ng-submit="editing = false">
             <input type="checkbox" ng-model="todo.completed" />
-            <span ng-click="todo.completed = !todo.completed" ng-checked="todo.completed" aria-label="{{todo.name}}" role="checkbox"></span>
+            <span ng-click="todo.completed = !todo.completed; focusOnCheckbox = true" focus-me="focusOnCheckbox" ng-checked="todo.completed" aria-label="{{todo.name}}" role="checkbox"></span>
             <label ng-hide="editing" ng-click="editing = true; focusInput = true" aria-label="Hit enter to edit {{todo.name}}">{{todo.name}}</label>
             <input ng-show="editing" focus-me="focusInput" ng-blur="editing = false; editComplete = true; focusSave = true" ng-model="todo.name" ng-change="todo.edited = true" ng-submit="editing = false; editComplete = true;" class="todo-label" type="text" />
         </form>
