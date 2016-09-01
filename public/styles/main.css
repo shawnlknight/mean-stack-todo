@@ -90,12 +90,12 @@ h1 {
     text-align: right;
 }
 
-.list .count span {
+.list .count span:nth-child(1) {
     cursor: default;
     float: left;
 }
 
-.list .count span .material-icons {
+.list .count span:nth-child(1) .material-icons {
     padding: 0 21px;
 }
 

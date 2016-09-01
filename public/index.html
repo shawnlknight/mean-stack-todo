@@ -15,9 +15,9 @@
     <h1>TODO</h1>
 
     <div class="list" ng-controller="mainCtrl">
-        <div class="count" role="status" aria-live="polite" aria-atomic="true">
-            <span><i class="material-icons" aria-label="Accessible App" title="Accessible App">accessibility</i></span>
-            {{remaining()}} of {{todos.length}} remaining todos
+        <div class="count">
+            <span><i class="material-icons" aria-label="Accessible App" title="Accessibility">accessibility</i></span>
+            <span role="status" aria-live="polite" aria-atomic="true">{{remaining()}} of {{todos.length}} remaining todos</span>            
         </div>
         <div class="add">
             <form name="todoForm" ng-submit="addTodo()">
